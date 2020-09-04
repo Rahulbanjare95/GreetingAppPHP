@@ -7,8 +7,17 @@ class GreetingController extends GreetingService
     {
         echo $this->greetMessage($firstname, $lastname);
     }
-    function storeMessageInRepository($firstName,$lastName){
+    function storeMessageInRepository($firstName,$lastName)
+    {
         $result = $this->addUsers($firstName,$lastName);
-        echo "message saved in database'.'<br>';
+        echo "message saved in database <br>";
     }
+
+    function findMessageByUserId($userID){
+        $result = $this->getMessagesById(13);
+        echo implode(" ",$result[0]);
+    }
+
 }
+
+?>
