@@ -34,6 +34,15 @@ class GreetingService extends Database {
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$firstName, $lastName]);
     }
+
+    protected function getMessagesById($userID){
+         $sql = "SELECT * FROM users  WHERE users_id = ?";
+         $statment = $this->connect()->prepare($sql);
+         $statment->execute([$userID]);
+         $result =  $statment->fetchAll();
+         return $result;
+
+    }
 }
 
 ?>
