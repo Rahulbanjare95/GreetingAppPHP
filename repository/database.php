@@ -21,8 +21,8 @@
         while ($row = $stmt->fetch()) {
             $json_array[] = $row;
         }
-        header('Content-Type:application/json'); // infrorms POSTMAN to read the content as json
-        echo json_encode($json_array);  // converting databse data stored in json array to json format
+        header('Content-Type:application/json'); 
+        echo json_encode($json_array);
     }
 
     }
