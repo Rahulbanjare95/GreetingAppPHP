@@ -15,7 +15,11 @@ class GreetingController extends GreetingService
 
     function findMessageByUserId($userID){
         $result = $this->getMessagesById(13);
-        echo implode(" ",$result[0]);
+        echo implode(' ',$result[0]);
+    }
+
+    function displayAllStoredMessages(){
+        $this->getUsers();
     }
 
 }
