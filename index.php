@@ -1,13 +1,18 @@
 <?php
 require_once("database.php");
+require_once("GreetingController.php");
 $db = new Database;
-if($_SERVER['REQUEST_METHOD'] == "GET"){
-    $db->getAllUsers();
+$greetingController = new GreetingController;
+$greetingController->getMessage();
+// if($_SERVER['REQUEST_METHOD'] == "GET"){
+    
+//     // $db->getAllUsers();
+    
 
-} else if ($_SERVER['REQUEST_METHOD'] == "POST"){
-    echo "POST";
-} else {
-    http_response_code(405);
-}
+// } else if ($_SERVER['REQUEST_METHOD'] == "POST"){
+//     echo "POST";
+// } else {
+//     http_response_code(405);
+// }
 
 ?>
