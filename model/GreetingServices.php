@@ -19,13 +19,13 @@ class GreetingService extends Database {
         return $this->message;
        }
      }
-       protected function getUsers($firstName)
+       protected function getUsers()
        {
-          $sql = "SELECT * FROM users  WHERE users_firstname = ?";
-          $statment = $this->connect()->prepare($sql);
-          $statment->execute([$firstName]);
-          $result =  $statment->fetchAll();
-          return $result;
+          $sql = "SELECT * FROM users";
+          $statment = $this->connect()->query($sql);
+          while ($row = $statment->fetch()) {
+               echo 'HI '.$row['users_firstname'].' '.$row['users_lastname'].'<br>';
+           }
        }
        
        protected function addUsers($firstName, $lastName)
