@@ -3,7 +3,7 @@ require_once("GreetingServices.php");
 class GreetingController extends GreetingService {
     
     function getMessage(){
-        echo $this->greetMessage();
+        echo $this->greetMessage('rahul','');
 }
 // $db = new Database;
 // if($_SERVER['REQUEST_METHOD'] == "GET"){
