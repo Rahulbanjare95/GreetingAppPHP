@@ -22,6 +22,12 @@ class GreetingController extends GreetingService
         $this->getUsers();
     }
 
+    function editUserById($firstname, $lastName, $userID){
+        $this->updateUserInfo($firstname, $lastName, $userID);
+        echo $this->displayAllStoredMessages();
+
+    }
+
 }
 
 ?>

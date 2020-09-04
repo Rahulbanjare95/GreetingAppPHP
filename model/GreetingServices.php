@@ -41,7 +41,13 @@ class GreetingService extends Database {
          $statment->execute([$userID]);
          $result =  $statment->fetchAll();
          return $result;
+    }
 
+    protected function updateUserInfo($firstName, $lastName, $userId)
+    {
+        $sql = "UPDATE users SET users_firstname = ?, users_lastname = ? WHERE users_id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$firstName, $lastName, $userId]);
     }
 }
 
