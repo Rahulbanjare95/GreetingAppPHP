@@ -3,7 +3,7 @@ require_once("database.php");
 require_once("GreetingController.php");
 $db = new Database;
 $greetingController = new GreetingController;
-$greetingController->getMessage();
+$greetingController->getMessage('Rahul','Banjare');
 // if($_SERVER['REQUEST_METHOD'] == "GET"){
     
 //     // $db->getAllUsers();
