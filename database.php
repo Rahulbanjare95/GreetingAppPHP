@@ -3,8 +3,8 @@
         private $user = "root";
         private $pwd = "";
         public $dsn; 
+
         protected function connect(){
-            $this->dsn;
             try{
             $dsn  = 'mysql:host=127.0.0.1;port=3307; dbname=oophp16';
                 $pdo = new PDO($dsn,$this->user, $this->pwd);
@@ -13,7 +13,17 @@
             }catch(PDOException $exception){
                 echo $exception->getMessage();
             }
-           
         }
+        public function getAllUsers()
+    {
+        $sql = "SELECT * FROM users";
+        $stmt = $this->connect()->query($sql);
+        while ($row = $stmt->fetch()) {
+            $json_array[] = $row;
+        }
+        header('Content-Type:application/json'); // infrorms POSTMAN to read the content as json
+        echo json_encode($json_array);  // converting databse data stored in json array to json format
+    }
+
     }
 ?>
