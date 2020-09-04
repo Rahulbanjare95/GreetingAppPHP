@@ -1,7 +1,7 @@
 <?php
-include_once 'model/GreetingServices.php';
+include_once 'model/GreetingUser.php';
 
-class GreetingController extends GreetingService
+class GreetingController extends GreetingUser
 {
     function getMessage($firstname, $lastname)
     {
@@ -26,6 +26,12 @@ class GreetingController extends GreetingService
         $this->updateUserInfo($firstname, $lastName, $userID);
         echo $this->displayAllStoredMessages();
 
+    }
+
+    function deleteMessageByID($userID){
+        $this->deleteUser($userID);
+        echo "After deletion <br>";
+        $this->displayAllStoredMessages();
     }
 
 }
